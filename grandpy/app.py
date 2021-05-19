@@ -4,7 +4,6 @@ def answer(question):
     #    analyser la question et conserver uniquement l'info
     #    utile (c'est à dire l'info de lieu)
 
-
     # 2. La question nettoyée est envoyée à une API de geocoding
     #    (here.com) pour obtenir (a) l'adresse du lieu et (b)
     #    les coordonnées de latitude et longitude

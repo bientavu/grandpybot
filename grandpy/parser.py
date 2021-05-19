@@ -8,29 +8,42 @@ class Parser:
         return unaccented_string
 
     def remove_all_apostrophe(self, sentence):
+        """Removes all apostrophe contained in the sentence"""
         original_string = sentence
         new_string = original_string.replace("'", "")
         return new_string
 
+    def remove_all_dashes(self, sentence):
+        """Removes all dashes contained in the sentence"""
+        original_string = sentence
+        new_string = original_string.replace("-", " ")
+        return new_string
+
+    def all_letters_in_lowercase(self, sentence):
+        """All letters are put in lowercase"""
+        original_string = sentence
+        new_string = original_string.lower()
+        return new_string
+
     def extract_place(self, sentence):
-        """Takes the 3 next words"""
-        string = sentence
-        words_to_find = 'Ou se trouve|Ou est|'
-        index_number = string.find('Ou se trouve')
-        return string[-8:index_number]
-
-    def search(self, sentence):
-        word = r"\W*([\w]+)"
-        words_to_find = 'ou se trouve|ou est'
-        groups = re.search(r'{}\W*{}{}'.format(word*5, 'ou se trouve', word*5), sentence, flags=re.IGNORECASE).groups()
-        place_string =  ' '.join(groups[5:])
-        return place_string
-
-    def search_2(self, sentence):
-        words_to_find = 'ou se trouve|ou est'
+        """
+        Takes the 5 next words after the keyword
+        to extract what the users want to search
+        """
+        words_to_find = r"(?<=ou est )\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w|" \
+        r"(?<=ou se trouve )\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w|" \
+        r"(?<=ou se situe )\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w"
         found_words = re.findall(words_to_find, sentence, flags=re.IGNORECASE)
-        return found_words
+        found_words_in_string = ''.join(found_words)
+        return found_words_in_string
 
-    def search_3(self, sentence):
-        return re.findall(r"ou se trouve[a-zA-Z]+", sentence, flags=re.IGNORECASE)
+    def execute_parser(self, sentence):
+        """Execute all the parser methods above"""
+        parser = Parser()
+        remove_all_accents = parser.remove_all_accents(sentence)
+        remove_all_apostrophe = parser.remove_all_apostrophe(remove_all_accents)
+        remove_all_dashes = parser.remove_all_dashes(remove_all_apostrophe)
+        all_letters_in_lowercase = parser.all_letters_in_lowercase(remove_all_dashes)
+        extract_place = parser.extract_place(all_letters_in_lowercase)
+        return extract_place
 
