@@ -30,9 +30,9 @@ class Parser:
         Takes the 5 next words after the keyword
         to extract what the users want to search
         """
-        words_to_find = r"(?<=ou est )\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w|" \
-        r"(?<=ou se trouve )\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w|" \
-        r"(?<=ou se situe )\w*\s*\w*\s*\w*\s*\w*\s*\w*\s*\w"
+        words_to_find = r"(?<=ou est )[^,.!?\n]+|" \
+        r"(?<=ou se trouve )[^,.!?\n]+|" \
+        r"(?<=ou se situe )[^,.!?\n]+|"
         found_words = re.findall(words_to_find, sentence, flags=re.IGNORECASE)
         found_words_in_string = ''.join(found_words)
         return found_words_in_string
