@@ -1,6 +1,4 @@
 import requests
-from pprint import pprint
-# from grandpy.parser import Parser
 
 class GeocodingClient:
     
@@ -20,7 +18,12 @@ class GeocodingClient:
         except requests.RequestException:
             return None
         
-        pprint(response.json())
+        data = response.json()
 
-client = GeocodingClient()
-client.search("tour eiffel")
+        extracted_data = {}
+        extracted_data['lat'] = data['results'][0]['geometry']['location']['lat']
+        extracted_data['lng'] = data['results'][0]['geometry']['location']['lng']
+        extracted_data['address'] = data['results'][0]['formatted_address']
+
+        return extracted_data
+        
