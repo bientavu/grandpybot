@@ -1,7 +1,7 @@
 import requests
 
 class GeocodingClient:
-    
+    """Connection to the Google Geocoding API to extract data"""
     def __init__(self):
         self.key = "AIzaSyDlR0cRia0TQImFqBM0d0pN22oVHEBgLxs"
         self.url = "https://maps.googleapis.com/maps/api/geocode/json"
@@ -10,6 +10,10 @@ class GeocodingClient:
         }
     
     def search(self, search_terms):
+        """
+        Search throught Google Geocoding API using given keywords
+        then extract the data we want : latitude, longitude & address
+        """
         self.params['address'] = search_terms
 
         try:
