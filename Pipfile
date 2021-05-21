@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 unidecode = "*"
+requests = "*"
 
 [dev-packages]
 pytest = "*"
