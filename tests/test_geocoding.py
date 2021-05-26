@@ -22,8 +22,8 @@ def test_get_geocoding_info(monkeypatch):
     monkeypatch.setattr("requests.get", mock_requests_get)
 
     client = GeocodingClient()
-    result = client.search("mairie de la ciotat")
+    results = client.search("mairie de la ciotat")
 
-    assert result == response_to_test
+    assert results == response_to_test
 
             
