@@ -1,12 +1,7 @@
 from grandpy.wikipedia import WikipediaClient
-import urllib.request
-from io import BytesIO
-import json
 
-class TestWikipediaClient:
 
-    def test_http_return(self, monkeypatch):
-        results = {
+response_to_test = {
             'fullurl': 'https://fr.wikipedia.org/wiki/Tour_Eiffel',
             'story': 'La tour Eiffel  est une tour de fer puddlé de 324 mètres de hauteur '
             '(avec antennes) située à Paris, à l’extrémité nord-ouest du parc du '
@@ -20,12 +15,22 @@ class TestWikipediaClient:
             '2015, avec 5,9 millions...'
             }
 
-        def mockreturn(request):
-            return BytesIO(json.dumps(results).encode())
+def test_get_wikipedia_info(monkeypatch):
+    
+    class FakeResponse():
+        def raise_for_status(self):
+            status_code = 200
+        
+        def json(self):
+            return response_to_test
 
-        monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
 
-        client = WikipediaClient()
-        result = client.search(48.85837009999999, 2.2944813)
-        assert result == results
+    def mock_requests_get(url, params):
+        return FakeResponse()
 
+    monkeypatch.setattr("requests.get", mock_requests_get)
+
+    client = WikipediaClient()
+    results = client.search(48.85837009999999, 2.2944813)
+
+    assert results == response_to_test

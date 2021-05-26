@@ -1,5 +1,6 @@
 from grandpy.geocoding import GeocodingClient
 
+
 response_to_test = {
             'address': 'Rond point des Messageries Maritimes, 13600 La Ciotat, France',
             'lat': 43.1736217,
@@ -26,4 +27,3 @@ def test_get_geocoding_info(monkeypatch):
 
     assert results == response_to_test
 
-            
