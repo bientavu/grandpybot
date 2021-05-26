@@ -33,7 +33,8 @@ class Parser:
         """
         words_to_find = r"(?<=ou est )[^,.!?\n]+|" \
         r"(?<=ou se trouve )[^,.!?\n]+|" \
-        r"(?<=ou se situe )[^,.!?\n]+|"
+        r"(?<=ou se situe )[^,.!?\n]+|" \
+        r"(?<=adresse )[^,.!?\n]+|"
         found_words = re.findall(words_to_find, sentence, flags=re.IGNORECASE)
         found_words_in_string = ''.join(found_words)
         return found_words_in_string

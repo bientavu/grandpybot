@@ -1,11 +1,6 @@
 from grandpy.geocoding import GeocodingClient
 
 
-LATITUDE_AND_LONGITUDE = {
-                    "lat": 43.1736217,
-                    "lng": 5.60509
-                }
-
 GET_RESPONSE = {
     "results": [
         {
@@ -59,7 +54,10 @@ GET_RESPONSE = {
             ],
             "formatted_address": "Rond point des Messageries Maritimes, 13600 La Ciotat, France",
             "geometry": {
-                "location": LATITUDE_AND_LONGITUDE,
+                "location": {
+                    "lat": 43.1736217,
+                    "lng": 5.60509
+                },
                 "location_type": "GEOMETRIC_CENTER",
                 "viewport": {
                     "northeast": {
@@ -88,12 +86,17 @@ GET_RESPONSE = {
     "status": "OK"
 }
 
+response_to_test = {
+                    "address": "Rond point des Messageries Maritimes, 13600 La Ciotat, France",
+                    "lat": 43.1736217,
+                    "lng": 5.60509
+                }
 
 def test_get_geocoding_info(monkeypatch):
     
     class FakeResponse():
-        # def raise_for_status(self):
-        status_code = 200
+        def raise_for_status(self):
+            status_code = 200
         
         def json(self):
             return GET_RESPONSE
@@ -107,5 +110,4 @@ def test_get_geocoding_info(monkeypatch):
     client = GeocodingClient()
     results = client.search("mairie de la ciotat")
 
-    assert results == GET_RESPONSE
-
+    assert results == response_to_test

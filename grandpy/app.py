@@ -3,7 +3,6 @@ from grandpy.geocoding import GeocodingClient
 from grandpy.wikipedia import WikipediaClient
 from pprint import pprint
 
-
 class App:
 
     def answer(self, question):
@@ -20,8 +19,6 @@ class App:
         geocoding_client_data = geocoding_client.search(keywords)
         latitude = geocoding_client_data['lat']
         longitude = geocoding_client_data['lng']
-        
-        # return latitude
 
         # 3. Envoyer la latitude et la longitude à l'API wikipedia
         #    qui va nous envoyer des articles liés à ces coordonnées.
@@ -29,10 +26,17 @@ class App:
         wikipedia_client = WikipediaClient()
         wikipedia_client_data = wikipedia_client.search(latitude, longitude)
 
-        return wikipedia_client_data
+        full_data = {}
+        full_data['latitude'] = latitude
+        full_data['longitude'] = longitude
+        full_data['address'] = geocoding_client_data['address']
+        full_data['story'] = wikipedia_client_data['story']
+        full_data['fullurl'] = wikipedia_client_data['fullurl']
+
+        return full_data
             # Infos récupérées en réponse à la question
         
 
 app = App()
-answer = app.answer("Bonjour ou se trouve la mairie de la ciotat ?")
+answer = app.answer("Salut GrandPy ! Est-ce que tu connais l'adresse de la tour eiffel ?")
 pprint(answer)
