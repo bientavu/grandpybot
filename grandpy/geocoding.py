@@ -16,18 +16,22 @@ class GeocodingClient:
         """
         self.params['address'] = search_terms
 
-        try:
-            response = requests.get(self.url, params=self.params)
-            response.raise_for_status()
-        except requests.RequestException:
-            return None
+        # try:
+        #     response = requests.get(self.url, params=self.params)
+        #     response.raise_for_status()
+        # except requests.RequestException:
+        #     return None
+
+        response = requests.get(self.url, params=self.params)
+        if response.status_code == 200:
+
         
-        data = response.json()
+            data = response.json()
 
-        extracted_data = {}
-        extracted_data['lat'] = data['results'][0]['geometry']['location']['lat']
-        extracted_data['lng'] = data['results'][0]['geometry']['location']['lng']
-        extracted_data['address'] = data['results'][0]['formatted_address']
+            extracted_data = {}
+            extracted_data['lat'] = data['results'][0]['geometry']['location']['lat']
+            extracted_data['lng'] = data['results'][0]['geometry']['location']['lng']
+            extracted_data['address'] = data['results'][0]['formatted_address']
 
-        return extracted_data
+            return extracted_data
         

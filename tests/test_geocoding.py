@@ -1,23 +1,29 @@
 from grandpy.geocoding import GeocodingClient
-import urllib.request
-from io import BytesIO
-import json
 
-class TestGeocodingClient:
-
-    def test_http_return(self, monkeypatch):
-        results = {
+response_to_test = {
             'address': 'Rond point des Messageries Maritimes, 13600 La Ciotat, France',
             'lat': 43.1736217,
             'lng': 5.60509
             }
 
-        def mockreturn(request):
-            return BytesIO(json.dumps(results).encode())
+def test_get_geocoding_info(monkeypatch):
+    
+    class FakeResponse():
+        # def raise_for_status(self):
+        status_code = 200
+        
+        def json(self):
+            return response_to_test
 
-        monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
 
-        client = GeocodingClient()
-        result = client.search("mairie de la ciotat")
-        assert result == results
+    def mock_requests_get(url, params):
+        return FakeResponse()
 
+    monkeypatch.setattr("requests.get", mock_requests_get)
+
+    client = GeocodingClient()
+    result = client.search("mairie de la ciotat")
+
+    assert result == response_to_test
+
+            
