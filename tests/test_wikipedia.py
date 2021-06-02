@@ -140,12 +140,14 @@ response_to_test = {
 
 def test_get_wikipedia_info(monkeypatch):
     
-    class FakeResponse():
+    class FakeResponse:
+        responses = iter([GET_RESPONSE, GET_RESPONSE_2])
+
         def raise_for_status(self):
             status_code = 200   
 
         def json(self):
-            return GET_RESPONSE
+            return next(self.responses)
 
     def mock_requests_get(url, params):
         return FakeResponse()

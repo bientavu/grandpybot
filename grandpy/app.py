@@ -13,7 +13,7 @@ class App:
         keywords = parser.execute_parser(question)
 
         # 2. La question nettoyée est envoyée à une API de geocoding
-        #    (here.com) pour obtenir (a) l'adresse du lieu et (b)
+        #    (google) pour obtenir (a) l'adresse du lieu et (b)
         #    les coordonnées de latitude et longitude
         geocoding_client = GeocodingClient()
         geocoding_client_data = geocoding_client.search(keywords)
@@ -36,7 +36,3 @@ class App:
         return full_data
             # Infos récupérées en réponse à la question
         
-
-app = App()
-answer = app.answer("Salut GrandPy ! Est-ce que tu connais l'adresse de la tour eiffel ?")
-pprint(answer)

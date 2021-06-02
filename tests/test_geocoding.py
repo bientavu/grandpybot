@@ -94,7 +94,7 @@ response_to_test = {
 
 def test_get_geocoding_info(monkeypatch):
     
-    class FakeResponse():
+    class FakeResponse:
         def raise_for_status(self):
             status_code = 200
         

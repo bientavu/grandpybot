@@ -38,7 +38,7 @@ class WikipediaClient:
             "explaintext": True,
             "pageids": page_id
         }
-        pprint(page_id)
+        
         try:
             response = requests.get(self.url, params=self.params)
             response.raise_for_status()

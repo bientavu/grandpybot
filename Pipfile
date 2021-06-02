@@ -6,9 +6,12 @@ name = "pypi"
 [packages]
 unidecode = "*"
 requests = "*"
+flask = "*"
+python-dotenv = "*"
 
 [dev-packages]
 pytest = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.8"

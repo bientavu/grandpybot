@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- En-tête de la page -->
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 1280px)" href="{{ url_for('static', filename='style_under_1280px.css') }}" /> 
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 900px)" href="{{ url_for('static', filename='style_under_900px.css') }}" /> 
+        <title>GrandPy Bot</title>
+    </head>
+    <header>
+        <body class="headerText">
+        <!-- Corps de la page -->
+        <img src="{{ url_for('static', filename='images/logo_v1.jpg') }}" alt="GrandPy Bot logo" />
+        <h2 class="headerText">Bonjour et bienvenue chez GrandPapy Bot !</h2>
+        <div>
+            <div class="sizing"><p> zdzdzdzd</p></div>
+            <div class="sizing">
+                <p class="headerTextDescription">Je suis un assistant qui vous permettra de trouver l'adresse d'un lieu, d'un monument, d'une institution, etc...</br>
+                Je dois l'avouer, je commence à me faire vieux, mais j'en connais encore un rayon !</br>
+                De quoi souhaitez-vous trouver l'adresse ? (peut-être que j'aurai une petite anecdote avec...)</p>
+            </div>
+            <div class="sizing"><p></p></div>
+        </div>
+        </body>
+    </header>
+    <section>
+        <div class="conversationContainer">
+
+        </div>
+        <div class="sendMessageContainer">
+            <form id="user-text-form">
+                <label for="userText"></label>
+                <input type="text" id="userText" class="inputuserText" name="userText" placeholder="Aa" autofocus>
+                <input type="submit" class="inputButton" value="Envoyer">
+            </form>
+        </div>
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+    </section>
+    <footer>
+        
+    </footer>
+    
+</html>
