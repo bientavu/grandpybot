@@ -5,7 +5,8 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
         <link rel="stylesheet" type="text/css" media="screen and (max-width: 1280px)" href="{{ url_for('static', filename='style_under_1280px.css') }}" /> 
-        <link rel="stylesheet" type="text/css" media="screen and (max-width: 900px)" href="{{ url_for('static', filename='style_under_900px.css') }}" /> 
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 900px)" href="{{ url_for('static', filename='style_under_900px.css') }}" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 450px)" href="{{ url_for('static', filename='style_under_450px.css') }}" /> 
         <title>GrandPy Bot</title>
     </head>
     <header>
@@ -14,19 +15,14 @@
         <img src="{{ url_for('static', filename='images/logo_v1.jpg') }}" alt="GrandPy Bot logo" />
         <h2 class="headerText">Bonjour et bienvenue chez GrandPapy Bot !</h2>
         <div>
-            <div class="sizing"><p> zdzdzdzd</p></div>
-            <div class="sizing">
-                <p class="headerTextDescription">Je suis un assistant qui vous permettra de trouver l'adresse d'un lieu, d'un monument, d'une institution, etc...</br>
-                Je dois l'avouer, je commence à me faire vieux, mais j'en connais encore un rayon !</br>
-                De quoi souhaitez-vous trouver l'adresse ? (peut-être que j'aurai une petite anecdote avec...)</p>
-            </div>
-            <div class="sizing"><p></p></div>
+            <p class="headerTextDescription">Je suis un assistant qui vous permettra de trouver l'adresse d'un lieu, d'un monument, d'une institution, etc...</br>
+            Je dois l'avouer, je commence à me faire un petit peu vieux, mais du coup j'en connais un rayon !</br>
+            De quoi souhaitez-vous trouver l'adresse ? (peut-être que j'aurai une petite anecdote avec...)</p>
         </div>
         </body>
     </header>
     <section>
         <div class="conversationContainer">
-
         </div>
         <div class="sendMessageContainer">
             <form id="user-text-form">
@@ -38,7 +34,10 @@
         <script src="{{ url_for('static', filename='main.js') }}"></script>
     </section>
     <footer>
-        
+        <div class="footerText">
+        <p>@Axel Mesnard</br>
+        <a href="https://github.com/bientavu/grandpybot" target="​_blank">GitHub</a>
+        </p>
+    </div>
     </footer>
-    
 </html>

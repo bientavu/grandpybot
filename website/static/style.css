@@ -27,7 +27,7 @@
 
 }
 .conversationContainer {
-    width: 65%;
+    width: 60%;
     height: 400px;
     background-color: #ffffff;
     margin: auto;
@@ -40,7 +40,7 @@
 }
 
 .sendMessageContainer{
-    width: 65%;
+    width: 60%;
     height: 50px;
     background-color: #ffffff;
     margin: auto;
@@ -61,12 +61,10 @@
     width: 85%;
     height:80%;
     line-height: 100%;
-    float: left;
     border-radius: 30px;
     border-color: #0097fe;
     padding-left: 20px;
     box-sizing: content-box;
-    margin-left: 5px;
 }
 
 .inputButton{
@@ -76,9 +74,15 @@
     width: 7%;
     height:80%;
     line-height: 100%;
-    float: right;
     border-radius: 30px;
     border-color: #0097fe;
     box-sizing: content-box;
-    margin-right: 5px;
+}
+
+.footerText{
+    text-align: center;
+    background-color: #0097fe;
+    color: #ffffff;
+    font-family: "quicksandregular", "Trebuchet MS", Verdana, Arial;
+    font-weight: bold;
 }
