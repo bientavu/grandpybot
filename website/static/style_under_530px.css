@@ -6,8 +6,16 @@
     font-family: Helvetica, "quicksandregular", "Trebuchet MS", Verdana, Arial;
 }
 
+.headerTextDescription{
+    text-align: center;
+    padding-right: 10px;
+    background-color: #0097fe;
+    color: #ffffff;
+    font-family: Helvetica, "quicksandregular", "Trebuchet MS", Verdana, Arial;
+}
+
 .sendMessageContainer{
-    width: 60%;
+    width: 80%;
     height: 50px;
     background-color: #ffffff;
     margin: auto;
@@ -21,15 +29,28 @@
 
 .inputuserText{
     font-family: Helvetica, "quicksandregular", "Trebuchet MS", Verdana, Arial; 
-    width: 80%;
+    width: 70%;
     height: 40px;
     line-height: 100%;
     border-radius: 30px;
     border-color: #0097fe;
-    padding-left: 20px;
+    padding-left: 10px;
     box-sizing: content-box;
-    font-size: 16px;
+    font-size: 13px;
     position: relative;
+}
+
+.conversationContainer {
+    width: 80%;
+    height: 610px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 10px 10px 5px 1px #00000063;
+    background-color: #ffffff;
+    margin: auto;
+    list-style: none;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .conversationContainer div {
@@ -40,13 +61,5 @@
     margin: 8px;
     margin-bottom: 0px;
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-}
-
-.answer{
-    background: #eee;
-    float: left;
-    color: #000000;
-    text-align: left;
-    max-width: 80%;
+    font-size: 13px;
 }

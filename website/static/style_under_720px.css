@@ -7,7 +7,7 @@
 }
 
 .sendMessageContainer{
-    width: 60%;
+    width: 80%;
     height: 50px;
     background-color: #ffffff;
     margin: auto;
@@ -32,6 +32,19 @@
     position: relative;
 }
 
+.conversationContainer {
+    width: 80%;
+    height: 610px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 10px 10px 5px 1px #00000063;
+    background-color: #ffffff;
+    margin: auto;
+    list-style: none;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .conversationContainer div {
     display:inline-block;
     clear: both;
@@ -41,12 +54,4 @@
     margin-bottom: 0px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
-}
-
-.answer{
-    background: #eee;
-    float: left;
-    color: #000000;
-    text-align: left;
-    max-width: 80%;
 }
