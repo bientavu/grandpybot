@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" media="screen and (max-width: 720px)" href="{{ url_for('static', filename='style_under_720px.css') }}" />
         <link rel="stylesheet" type="text/css" media="only screen and (max-width: 530px)" href="{{ url_for('static', filename='style_under_530px.css') }}" /> 
         <title>GrandPy Bot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <header>
         <body class="headerText">
@@ -32,7 +33,7 @@
                 <input type="image" class="inputButton" id="inputButton" alt="Envoyer" src="/static/images/logo_send.png">
             </form>
         </div>
-        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv4_XB-nvhxiZU-vh70nohrUKqZLaQSPU&libraries=&v=weekly"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv4_XB-nvhxiZU-vh70nohrUKqZLaQSPU&libraries=&v=weekly"></script>
         <script src="{{ url_for('static', filename='main.js') }}"></script>
     </section>
     <footer>

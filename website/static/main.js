@@ -27,6 +27,7 @@ function initMap(mapDiv, latitude, longitude) {
         lat: latitude,
         lng: longitude
     };
+    console.log(place)
     const map = new google.maps.Map(mapDiv, {
         zoom: 12,
         center: place,
@@ -34,6 +35,7 @@ function initMap(mapDiv, latitude, longitude) {
     const marker = new google.maps.Marker({
         position: place,
         map: map
+        // title: "adresse"
     });
 }
 
