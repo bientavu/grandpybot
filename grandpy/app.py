@@ -32,6 +32,8 @@ class App:
         full_data['address'] = geocoding_client_data['address']
         full_data['story'] = wikipedia_client_data['story']
         full_data['fullurl'] = wikipedia_client_data['fullurl']
+        full_data['grandpy_address'] = "Hello, j'ai trouvé ce que tu m'as demandé :) Voici l'adresse : "
+        full_data['grandpy_wiki'] = "J'ai également trouvé une petite anecdote concernant un lieu proche de ton adresse : "
 
         return full_data
             # Infos récupérées en réponse à la question
