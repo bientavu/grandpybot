@@ -1,3 +1,5 @@
+@media only screen and (hover: none) and (pointer: coarse){
+    
 .headerText {
     text-align: center;
     background-color: #0097fe;
@@ -64,4 +66,5 @@
     margin-bottom: 0px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 13px;
+}
 }

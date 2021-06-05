@@ -77,9 +77,9 @@ function buildResponse(response) {
     conversationContainer.appendChild(seeFullStory);
 }
 
-function resetInputForm(userText) {
-    userText.reset();
-};
+// function resetInputForm(userText) {
+//     userText.reset();
+// };
 
 function runLoadAnimation() {
     let inputButton = document.querySelector('#inputButton');
@@ -102,5 +102,5 @@ form.addEventListener("submit", function(event) {
         })
         .catch(error => console.log(error));
 
-    resetInputForm(document.querySelector("#userText").value);
+    // resetInputForm(document.querySelector("#userText").value);
 })
