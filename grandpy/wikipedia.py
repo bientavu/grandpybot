@@ -34,7 +34,7 @@ class WikipediaClient:
             "action": "query",
             "prop": "extracts|info",
             "inprop": "url",
-            "exchars": 600,
+            "exchars": 250,
             "explaintext": True,
             "pageids": page_id
         }
