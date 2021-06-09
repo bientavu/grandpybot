@@ -18,11 +18,9 @@ function buildQuestion(value) {
 
     const conversationContainer = document.querySelector("#conversationContainer");
     conversationContainer.appendChild(question);
-
 }
 
-function initMap(mapDiv, latitude, longitude) {
-
+function initMap(mapDiv, latitude, longitude, address) {
     const place = {
         lat: latitude,
         lng: longitude
@@ -34,8 +32,8 @@ function initMap(mapDiv, latitude, longitude) {
     });
     const marker = new google.maps.Marker({
         position: place,
-        map: map
-        // title: "adresse"
+        map: map,
+        title: address
     });
 }
 
@@ -73,15 +71,15 @@ function buildResponse(response) {
     const conversationContainer = document.querySelector("#conversationContainer");
     conversationContainer.appendChild(answerHeader);
     conversationContainer.appendChild(answerMap);
-    initMap(answerMap, response.latitude, response.longitude)
+    initMap(answerMap, response.latitude, response.longitude, response.address)
     conversationContainer.appendChild(answerWiki);
     conversationContainer.appendChild(answerWiki2);
     conversationContainer.appendChild(seeFullStory);
 }
 
-// function resetInputForm(userText) {
-//     userText.reset();
-// };
+function resetInputForm() {
+    document.getElementById("userText").value = "";
+};
 
 function runLoadAnimation() {
     let inputButton = document.querySelector('#inputButton');
@@ -104,5 +102,5 @@ form.addEventListener("submit", function(event) {
         })
         .catch(error => console.log(error));
 
-    // resetInputForm(document.querySelector("#userText").value);
+    resetInputForm();
 })

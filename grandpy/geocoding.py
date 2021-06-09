@@ -5,7 +5,7 @@ import requests
 class GeocodingClient:
     """Connection to the Google Geocoding API to extract data"""
     def __init__(self):
-        self.key = os.getenv("GOOGLE_API_KEY")
+        self.key = os.getenv("GOOGLE_BACK_API_KEY")
         self.url = "https://maps.googleapis.com/maps/api/geocode/json"
         self.params = {
         "key": self.key,
