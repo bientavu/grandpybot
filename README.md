@@ -11,7 +11,7 @@ Here are some examples of question you can ask him/her (questions must be provid
 
 This project uses the Google Geocoding API and Geosearch Wikipedia API.
 
-![example](https://github.com/bientavu/grandpybot/blob/website/static/images/example.png?raw=true)
+![example](https://github.com/bientavu/grandpybot/blob/main/website/static/images/example.png?raw=true)
 
 ## **LocalHost**
 To run on localhost:
