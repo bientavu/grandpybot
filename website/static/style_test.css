@@ -41,7 +41,7 @@ background: #0097fe;
 
 .conversationContainer {
     width: 60%;
-    height: 610px;
+    height: 600px;
     border-radius: 10px 10px 0 0;
     box-shadow: 10px 10px 5px 1px #00000063;
     background-color: #ffffff;
@@ -94,16 +94,9 @@ background: #0097fe;
     top: -17px;
 }
 
-.inputuserText select:hover {
-    font-family: Helvetica, "quicksandregular", "Trebuchet MS", Verdana, Arial; 
-    width: 85%;
-    height:80%;
-    line-height: 100%;
-    border-radius: 30px;
-    border-color: #0097fe;
-    padding-left: 20px;
-    box-sizing: content-box;
-    font-size: 16px;
+.inputuserText:focus {
+    outline: none;
+
 }
 
 .inputButton{
@@ -136,9 +129,10 @@ background: #0097fe;
     max-width: 50%;
 }
 
-#answer-map {
+.answer-map {
     width: 50%;
     height: 250px;
+    flex-shrink: 0;
 }
 
 .answer + .question{
