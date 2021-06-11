@@ -20,13 +20,18 @@ function buildQuestion(value) {
     conversationContainer.appendChild(question);
 }
 
-function initMap(mapDiv, latitude, longitude, address) {
+function initMap(latitude, longitude, address) {
+
+    const answerMap = document.createElement("div");
+    answerMap.classList.add("answer");
+    answerMap.classList.add("answer-map");
+
     const place = {
         lat: latitude,
         lng: longitude
     };
     console.log(place)
-    const map = new google.maps.Map(mapDiv, {
+    const map = new google.maps.Map(answerMap, {
         zoom: 12,
         center: place,
     });
@@ -35,6 +40,8 @@ function initMap(mapDiv, latitude, longitude, address) {
         map: map,
         title: address
     });
+
+    return answerMap
 }
 
 function buildResponse(response) {
@@ -43,9 +50,7 @@ function buildResponse(response) {
     answerHeader.setAttribute("id", "answer");
     answerHeader.textContent = response.grandpy_address + response.address;
 
-    const answerMap = document.createElement("div");
-    answerMap.classList.add("answer");
-    answerMap.setAttribute("id", "answer-map");
+    const answerMap = initMap(response.latitude, response.longitude, response.address)
 
     const answerWiki = document.createElement("div");
     answerWiki.classList.add("answer");
@@ -71,7 +76,6 @@ function buildResponse(response) {
     const conversationContainer = document.querySelector("#conversationContainer");
     conversationContainer.appendChild(answerHeader);
     conversationContainer.appendChild(answerMap);
-    initMap(answerMap, response.latitude, response.longitude, response.address)
     conversationContainer.appendChild(answerWiki);
     conversationContainer.appendChild(answerWiki2);
     conversationContainer.appendChild(seeFullStory);
@@ -84,7 +88,7 @@ function resetInputForm() {
 function runLoadAnimation() {
     let inputButton = document.querySelector('#inputButton');
     inputButton.classList.add('spinning');
-    setTimeout(() => inputButton.classList.remove('spinning'), 1000);
+    setTimeout(() => inputButton.classList.remove('spinning'), 2000);
   };
 
 form.addEventListener("submit", function(event) {
