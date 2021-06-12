@@ -15,6 +15,10 @@ This project uses the Google Geocoding API and Geosearch Wikipedia API.
 
 ## **LocalHost**
 To run on localhost:
+1. Run `pipenv install`
+2. Rename '.env.example' to '.env' and put your API keys inside
+3. Run `flask run`
+4. The app is now accessible with your localhost address (given by flask)
 
 ## **Live version**
 Live version available: https://grandpybot-axel.herokuapp.com/
