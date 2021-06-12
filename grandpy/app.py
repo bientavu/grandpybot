@@ -1,7 +1,6 @@
 from grandpy.parser import Parser
 from grandpy.geocoding import GeocodingClient
 from grandpy.wikipedia import WikipediaClient
-from pprint import pprint
 
 class App:
 
@@ -36,5 +35,4 @@ class App:
         full_data['grandpy_wiki'] = "J'ai également trouvé une petite anecdote concernant un lieu proche de votre adresse : "
 
         return full_data
-            # Infos récupérées en réponse à la question
         
