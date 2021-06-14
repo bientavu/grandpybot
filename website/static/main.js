@@ -73,9 +73,12 @@ function buildResponse(response) {
     span.appendChild(link);
     seeFullStory.appendChild(link);
     
+    const mapDiv = document.createElement("div");
+    mapDiv.setAttribute("id", "mapDiv");
+    mapDiv.appendChild(answerMap);
     const conversationContainer = document.querySelector("#conversationContainer");
     conversationContainer.appendChild(answerHeader);
-    conversationContainer.appendChild(answerMap);
+    conversationContainer.appendChild(mapDiv);
     conversationContainer.appendChild(answerWiki);
     conversationContainer.appendChild(answerWiki2);
     conversationContainer.appendChild(seeFullStory);
